@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% load static%}
+{%block title%}SIGN_UP_PAGE{% endblock %}
+ {% block content%}
+<div class="container">
+      <div class="row">
+       <div class="col-sm-6 offset-3 mt-4 bg-light p-5">
+        <form action="" method="post">
+      {% csrf_token%}
+      {% for fm in form%}
+      {{fm.label_tag}}{{fm}}<br>
+            <br>
+      {{fm.errors.message|striptags}}
+      {% endfor%}
+      <input type="submit" value="Login" class="btn btn-outline-success p-2">
+     </form>
+       </div>
+      </div>
+</div>
+{% endblock content%}

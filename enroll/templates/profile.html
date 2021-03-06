@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+{% load static %}
+{%block title%}PROFILE_PAGE{% endblock %}
+ {% block content%}
+<div class="container">
+      <div class="row">
+       <div class="col-sm-6 offset-3">
+           <h3 class="mt-3 bg-warning p-3 mb-4">Dashboard User?admin</h3>
+           <a href="{%url 'logout' %}"><h4 class="btn btn-danger mb-3 ml-3 mt-2">Logout</h4></a>
+               <a href="{% url 'change1'%}"><h4 class="btn btn-success mb-3 mt-2">Change Password</h4></a>
+<form action="" method="POST" novalidate>
+    {% csrf_token %}
+     {% for fm in name %}
+   {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}<br><br>
+        {% endfor %}
+        {% if user != None %}
+        <h3>List of User</h3>
+    		<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for fm in user %}
+    <tr>
+  	 <th scope="row">{{st.id}}</th>
+      <td>  {{fm.username}}</td>
+      <td>{{fm.email}}</td>
+    <tr>
+     {%endfor%}
+  </tbody>
+</table>
+    {%endif%}
+        <input type="submit" value="Save" class="btn btn-success" name="" id="">
+            </form>
+       </div>
+      </div>
+</div>
+{% endblock content%}

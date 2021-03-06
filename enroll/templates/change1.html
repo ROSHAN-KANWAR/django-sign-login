@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% load static %}
+{%block title%}Change_Password_PAGE{% endblock %}
+ {% block content%}
+    <h3 class="mt-3 bg-light p-3 mb-4">Change password with No old password</h3>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% for fm in form %}
+        {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}<br><br>
+        {% endfor %}
+
+        <input type="submit" class="btn btn-success" value="Change" name="" id="">
+    </form>
+{% endblock%}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+     <link rel="stylesheet" href="{% static 'font/css/all.css' %}">
+    <title>{%block title%}{% endblock %} </title>
+</head>
+<body>
+	<div class="container">
+        <nav class="nav bg-light p-3 link">
+  <a class="nav-link active" aria-current="page" href="{% url 'sign' %}">Signup</a>
+  <a class="nav-link" href="{% url 'login' %}">Login</a>
+             <a class="nav-link" href="{% url 'profile' %}">Dashboard</a>
+</nav>
+        {% block content%} {% endblock %}
+
+	</div>
+
+<script src="{%static 'js/bootstrap.min.js' %}"></script>
+<script src="{%static 'js/jquery-3.5.1.js' %}"></script>
+</body>
+</html>
